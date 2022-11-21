@@ -26,13 +26,24 @@ class get_count {
         return word;
     }
 
+    //method to get vowel count
 
+    public int vowel_count(String str){
+        int vowel=0;
+        str=str.toLowerCase();
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i)=='a'||str.charAt(i)=='e'||str.charAt(i)=='i'||str.charAt(i)=='o'||str.charAt(i)=='u' ){
+                vowel++;
+            }
+        }
+        return vowel;
+    }
 
 }
 
 public class count {
     public static void main(String[] args){
-        int s_count = 0,w_count=0;
+        int s_count = 0,w_count=0,v_count=0;
         Scanner sc=new Scanner(System.in);
         System.out.println("PLEASE ENTER THE STRINGS(TYPE 0 TO STOP): ");
         ArrayList<String> str=new ArrayList<>(1000);
@@ -55,12 +66,14 @@ public class count {
         for(int i=0;i<str.size();i++){
             int c= g1.white_space_count(str.get(i));
             int l=g1.word_count(str.get(i));
+            int v=g1.vowel_count(str.get(i));
             s_count+=c;
             w_count+=l;
+            v_count+=v;
         }
-        System.out.println("NUMBER OF WHITE SPACES:"+s_count);
-        System.out.println("NUMBER OF WORDS:"+w_count);
-
+        System.out.println("NUMBER OF WHITE SPACES : "+s_count);
+        System.out.println("NUMBER OF WORDS : "+w_count);
+        System.out.println("NUMBER OF VOWELS :"+v_count);
 
     }
 }
